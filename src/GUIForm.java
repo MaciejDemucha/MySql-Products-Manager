@@ -1,7 +1,9 @@
 //https://www.youtube.com/watch?v=jOXCkXc5X38&list=PLo4535whUBh4PU1DLOZKeLKtMcHWVvZTe&index=17&t=1697s
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import java.util.Vector;
 
 public class GUIForm {
     private JPanel Main;
@@ -14,6 +16,10 @@ public class GUIForm {
     private JTextField textFieldQuantity;
     private JButton searchButton;
     private JLabel Title;
+    private JTable productsTable;
+    private JScrollPane scrollPane;
+    private DefaultTableModel tableModel;
+    Vector<String> headers = new Vector<>();
 
     Connection con;
     PreparedStatement pst;
@@ -22,13 +28,26 @@ public class GUIForm {
         JFrame frame = new JFrame("Products Database Manager");
         frame.setContentPane(new GUIForm().Main);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
     public GUIForm() {
+        headers.add("ID");
+        headers.add("Name");
+        headers.add("Price");
+        headers.add("Quantity");
         Connect();
+        System.out.println(returnData());
+        tableModel = new DefaultTableModel(returnData(), headers){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        productsTable.setModel(tableModel);
         saveButton.addActionListener(e -> {
             String name, price, quantity;
 
@@ -128,16 +147,40 @@ public class GUIForm {
 
 
     public void Connect(){
-
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
+            String password = JOptionPane.showInputDialog("Podaj hasło: ");
             con = DriverManager.getConnection
-                    ("jdbc:mysql://localhost/products", "root", "d31f2547");
-            System.out.println("Successfully connected to database");
+                    ("jdbc:mysql://localhost/products", "root", password);
+            JOptionPane.showMessageDialog
+                    (null,"Successfully connected to database");
         }
         catch (SQLException | ClassNotFoundException e){
                 e.printStackTrace();
         }
+    }
+
+    public Vector<Vector<String>> returnData(){
+        try{
+            Vector<Vector<String>> data = new Vector<>();
+
+            Vector<String> record = new Vector<>();
+            pst = con.prepareStatement("SELECT * FROM products");
+            ResultSet rs = pst.executeQuery();
+
+            while(rs.next()){
+                record.add(rs.getString(1));
+                record.add(rs.getString(2));
+                record.add(rs.getString(3));
+                record.add(rs.getString(4));
+                data.add(record);
+            }
+            return data;
+        }
+        catch (SQLException e5){
+            e5.printStackTrace();
+        }
+        return null;
     }
 
     public void clearTextBoxes(){
@@ -148,3 +191,4 @@ public class GUIForm {
         textFieldName.requestFocus();
     }
 }
+
