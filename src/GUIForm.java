@@ -2,6 +2,7 @@
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.sql.*;
 import java.util.Vector;
 
@@ -40,7 +41,6 @@ public class GUIForm {
         headers.add("Price");
         headers.add("Quantity");
         Connect();
-        System.out.println(returnData());
         tableModel = new DefaultTableModel(returnData(), headers){
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -156,6 +156,7 @@ public class GUIForm {
                     (null,"Successfully connected to database");
         }
         catch (SQLException | ClassNotFoundException e){
+                JOptionPane.showMessageDialog(null ,"Connection error");
                 e.printStackTrace();
         }
     }
@@ -164,16 +165,18 @@ public class GUIForm {
         try{
             Vector<Vector<String>> data = new Vector<>();
 
-            Vector<String> record = new Vector<>();
             pst = con.prepareStatement("SELECT * FROM products");
             ResultSet rs = pst.executeQuery();
 
             while(rs.next()){
-                record.add(rs.getString(1));
+
+                Vector<String> record = new Vector<>();
+                record.add(rs.getInt(1) + "");
                 record.add(rs.getString(2));
-                record.add(rs.getString(3));
-                record.add(rs.getString(4));
+                record.add(rs.getInt(3) + "");
+                record.add(rs.getInt(4) + "");
                 data.add(record);
+
             }
             return data;
         }

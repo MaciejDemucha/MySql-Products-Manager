@@ -20,9 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78107ca1-5ce5-46c1-a2ba-958036c4a936" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUIForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUIForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUIForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUIForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,6 +91,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1188" y="231" key="#com.intellij.ide.util.MemberChooser" timestamp="1644425633228">
@@ -103,22 +102,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1089" y="266" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1644421456098" />
-    <state width="1259" height="284" key="GridCell.Tab.0.bottom" timestamp="1644589518629">
+    <state width="1259" height="284" key="GridCell.Tab.0.bottom" timestamp="1645004355941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1259" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1644589518629" />
-    <state width="1259" height="284" key="GridCell.Tab.0.center" timestamp="1644589518629">
+    <state width="1259" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1645004355941" />
+    <state width="1259" height="284" key="GridCell.Tab.0.center" timestamp="1645004355940">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1259" height="284" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1644589518629" />
-    <state width="1259" height="284" key="GridCell.Tab.0.left" timestamp="1644589518629">
+    <state width="1259" height="284" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1645004355940" />
+    <state width="1259" height="284" key="GridCell.Tab.0.left" timestamp="1645004355940">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1259" height="284" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1644589518629" />
-    <state width="1259" height="284" key="GridCell.Tab.0.right" timestamp="1644589518629">
+    <state width="1259" height="284" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1645004355940" />
+    <state width="1259" height="284" key="GridCell.Tab.0.right" timestamp="1645004355941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1259" height="284" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1644589518629" />
+    <state width="1259" height="284" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1645004355941" />
     <state x="792" y="288" key="GuiDesigner.FormSource.Dialog" timestamp="1644583890242">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
