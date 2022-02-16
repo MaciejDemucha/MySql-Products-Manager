@@ -6,7 +6,7 @@ import java.awt.*;
 import java.sql.*;
 import java.util.Vector;
 
-public class GUIForm {
+public class GUIForm extends Component {
     private JPanel Main;
     private JTextField textFieldName;
     private JTextField textFieldPrice;
@@ -20,7 +20,7 @@ public class GUIForm {
     private JTable productsTable;
     private JScrollPane scrollPane;
     private DefaultTableModel tableModel;
-    Vector<String> headers = new Vector<>();
+    private Vector<String> headers = new Vector<>();
 
     Connection con;
     PreparedStatement pst;
@@ -67,6 +67,7 @@ public class GUIForm {
                 textFieldPrice.setText("");
                 textFieldQuantity.setText("");
                 textFieldName.requestFocus();
+                refresh();
             }
             catch (SQLException e1){
                 e1.printStackTrace();
@@ -109,7 +110,7 @@ public class GUIForm {
             name = textFieldName.getText();
             price = textFieldPrice.getText();
             quantity = textFieldQuantity.getText();
-            id = textFieldID.getText();
+            id = (String) productsTable.getModel().getValueAt(getSelectedIndex(), 0);
 
             try{
                 pst = con.prepareStatement
@@ -122,6 +123,7 @@ public class GUIForm {
                 JOptionPane.showMessageDialog
                         (null, "Record Updated");
                 clearTextBoxes();
+                refresh();
             }
             catch (SQLException e3){
                 e3.printStackTrace();
@@ -130,14 +132,14 @@ public class GUIForm {
 
         deleteButton.addActionListener(e -> {
             String id;
-            id = textFieldID.getText();
+            id = (String) productsTable.getModel().getValueAt(getSelectedIndex(), 0);
 
             try{
                 pst = con.prepareStatement("DELETE FROM products WHERE id = ?");
                 pst.setString(1, id);
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null,"Record deleted");
-                clearTextBoxes();
+                refresh();
             }
             catch (SQLException e4){
                 e4.printStackTrace();
@@ -149,7 +151,7 @@ public class GUIForm {
     public void Connect(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String password = JOptionPane.showInputDialog("Podaj hasło: ");
+            String password = JOptionPane.showInputDialog("Password: ");
             con = DriverManager.getConnection
                     ("jdbc:mysql://localhost/products", "root", password);
             JOptionPane.showMessageDialog
@@ -192,6 +194,27 @@ public class GUIForm {
         textFieldQuantity.setText("");
         textFieldID.setText("");
         textFieldName.requestFocus();
+    }
+
+    public void refresh(){
+        tableModel.setRowCount(0);
+        for(int i = 0; i < returnData().size(); i++){
+            String[] row = {
+                    returnData().get(i).get(0),
+                    returnData().get(i).get(1),
+                    returnData().get(i).get(2),
+                    returnData().get(i).get(3)};
+
+            tableModel.addRow(row);
+        }
+    }
+
+    int getSelectedIndex(){
+        int index = productsTable.getSelectedRow();
+        if (index<0) {
+            JOptionPane.showMessageDialog(this, "No record selected.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return index;
     }
 }
 
