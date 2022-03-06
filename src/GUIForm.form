@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUIForm">
-  <grid id="27dc6" binding="Main" layout-manager="GridLayoutManager" row-count="10" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="Main" layout-manager="GridLayoutManager" row-count="13" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="554" height="400"/>
+      <xy x="20" y="20" width="573" height="426"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -59,12 +59,12 @@
         </constraints>
         <properties/>
       </component>
-      <component id="560f6" class="javax.swing.JButton" binding="saveButton" default-binding="true">
+      <component id="560f6" class="javax.swing.JButton" binding="addButton">
         <constraints>
           <grid row="4" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Save"/>
+          <text value="Add"/>
         </properties>
       </component>
       <component id="6fd26" class="javax.swing.JButton" binding="deleteButton" default-binding="true">
@@ -85,15 +85,15 @@
       </component>
       <component id="fff9f" class="javax.swing.JLabel">
         <constraints>
-          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="ID"/>
+          <text value="Min:"/>
         </properties>
       </component>
-      <component id="b94c4" class="javax.swing.JTextField" binding="textFieldID">
+      <component id="b94c4" class="javax.swing.JTextField" binding="textFieldMin">
         <constraints>
-          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -101,15 +101,15 @@
       </component>
       <component id="11215" class="javax.swing.JButton" binding="searchButton" default-binding="true">
         <constraints>
-          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Search"/>
+          <text value="Search by price"/>
         </properties>
       </component>
       <scrollpane id="94ba8" binding="scrollPane">
         <constraints>
-          <grid row="0" column="2" row-span="10" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="4" row-span="13" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
@@ -127,6 +127,54 @@
           </grid>
         </constraints>
         <properties/>
+      </component>
+      <component id="d73e4" class="javax.swing.JButton" binding="sortAlphabeticallyButton" default-binding="true">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Sort alphabetically"/>
+        </properties>
+      </component>
+      <component id="24726" class="javax.swing.JButton" binding="descButton">
+        <constraints>
+          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Sort by price (descending)"/>
+        </properties>
+      </component>
+      <component id="b234c" class="javax.swing.JTextField" binding="textFieldMax">
+        <constraints>
+          <grid row="11" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="e818b" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Max:"/>
+        </properties>
+      </component>
+      <component id="7a525" class="javax.swing.JButton" binding="showAllButton" default-binding="true">
+        <constraints>
+          <grid row="12" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Show all"/>
+        </properties>
+      </component>
+      <component id="93cce" class="javax.swing.JButton" binding="ascButton">
+        <constraints>
+          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Sort by price (ascending)"/>
+        </properties>
       </component>
     </children>
   </grid>
