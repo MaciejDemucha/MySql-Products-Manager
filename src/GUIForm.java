@@ -160,7 +160,7 @@ public class GUIForm extends Component {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             //Wpisywanie hasła
-            String password = JOptionPane.showInputDialog("Password: ");
+            String password = JOptionPane.showInputDialog("Password: "); //d31f2547
 
             con = DriverManager.getConnection
                     ("jdbc:mysql://localhost/products", "root", password);
